@@ -6,3 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.stars {
+  width: 100px;
+}
+
+button {
+  border: 0;
+  background: transparent;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+button:hover,
+button:hover + button,
+button:hover + button + button,
+button:hover + button + button + button,
+button:hover + button + button + button + button {
+  color: #faa;
+}

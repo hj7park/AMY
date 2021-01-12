@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AMY(Ask Me Yourself)</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Ask Me Yourself!</h1>
+    <h2>Question : <%= question.question %></h2>
+    <p>Popularity : <%= question.popularity %></p>
+    <p>Asked By : <%= question.username.name %></p>
+    <table> <h3>Answers!</h3>
+      <% question.answers.forEach(function(answer){ %>
+      <tr>
+        <th>Answer : <%= answer.answer%></th>
+        <th>Rating : 
+          <% let averageRating=0; %>
+          <% answer.ratings.forEach(function(rating){ %>
+            <% averageRating += rating.rating %>
+          <%}) averageRating = averageRating/answer.ratings.length%>
+          <%= averageRating %>
+        </th>
+        <th>User : <%= answer.username.name%></th>
+        <th>Rate the answer!:
+          <form class="stars" action="/questions/<%=question._id%>/answers/<%=answer._id%>/ratings" method="post">
+            <button type="submit" name="rating" value="5">&#9733;</button>
+            <button type="submit" name="rating" value="4">&#9733;</button>
+            <button type="submit" name="rating" value="3">&#9733;</button>
+            <button type="submit" name="rating" value="2">&#9733;</button>
+            <button type="submit" name="rating" value="1">&#9733;</button>
+          </form>
+        </th>
+      </tr>
+      <% })%>
+    </table>
+    <form action="/questions/<%=question._id%>/answers/new" method="post">
+      <textarea name="answer" style="height:100px;width:500px;font-size:12pt;"></textarea>
+      <input type="submit">
+    </form>
+
+  </body>
+</html>
+ 
