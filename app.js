@@ -5,11 +5,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 //express sessions
-require('./config/database');
 var session = require('express-session');
 var logger = require('morgan');
 var passport = require('passport');
-
+require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');

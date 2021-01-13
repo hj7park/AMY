@@ -17,7 +17,9 @@
           <% let averageRating=0; %>
           <% answer.ratings.forEach(function(rating){ %>
             <% averageRating += rating.rating %>
-          <%}) averageRating = averageRating/answer.ratings.length%>
+          <%})%>
+          <%averageRating = averageRating/answer.ratings.length; %>
+          <% averageRating = Math.round(averageRating * 100)/100; %>
           <%= averageRating %>
         </th>
         <th>User : <%= answer.username.name%></th>
