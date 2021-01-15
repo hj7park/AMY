@@ -81,6 +81,7 @@ li {
 table{
   border: 1px solid black;
   width: 90%;
+  margin:10px 0 50px 0;
 }
 th {
   border: 1px solid black;
@@ -106,7 +107,7 @@ th.icons{
 
 .stars {
   width: 100%;
-  margin:auto;
+  text-align:center;
 }
 
 button {
