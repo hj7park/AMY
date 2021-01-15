@@ -1,0 +1,10 @@
+<%- include('partials/header') %>
+  <h1>Edit Your Answer</h1>
+  <form action="/questions/<%=question._id%>/answers/<%= answer._id%>/editForm" method ="post">
+  <p>
+    <textarea name="answer" style="height:150px;width:500px;font-size:20pt;" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }"  placeholder="ask here!" required></textarea>
+  </p>
+  <input type="submit" value="OK">
+  </form>
+<%- include('partials/footer') %>
+ 

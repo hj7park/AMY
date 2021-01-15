@@ -12,6 +12,10 @@ router.post('/:id/edit', isLoggedIn, questionCtrl.updateQuestion)
 router.post('/:id/editForm', isLoggedIn, questionCtrl.updateQuestionForm)
 router.post('/:id/delete', isLoggedIn, questionCtrl.deleteQuestion)
 
+router.post('/:id/answers/:aid/edit', isLoggedIn, questionCtrl.updateAnswer)
+router.post('/:id/answers/:aid/editForm', isLoggedIn, questionCtrl.updateAnswerForm)
+router.post('/:id/answers/:aid/delete', isLoggedIn, questionCtrl.deleteAnswer)
+
 router.get('/:id', questionCtrl.showQuestion);
 router.post('/:id/answers/new',isLoggedIn, questionCtrl.addAnswer);
 router.post('/:id', questionCtrl.deleteAdminQuestion);

@@ -43,20 +43,22 @@
             <button type="submit" name="rating" value="1">&#9733;</button>
           </form>
         </th>
+        <% if(user && String(user._id) == String(answer.username._id)){ %>
         <th class="icons">
-          <form action="/questions/<%= question._id %>/edit" method="post">
+          <form action="/questions/<%= question._id %>/answers/<%= answer._id%>/edit" method="post">
             <button type="submit"><i class="fas fa-edit"></i></button>
           </form>
-          <form action="/questions/<%= question._id %>/delete" method="post">
+          <form action="/questions/<%= question._id %>/answers/<%= answer._id%>/delete" method="post">
             <button type="submit"><i class="fas fa-trash-alt"></i></button>
           </form>
         </th>
+        <% } %>
       </tr>
       <% })%>
     </table>
     <% }%>
     <form action="/questions/<%=question._id%>/answers/new" method="post">
-      <textarea name="answer" style="height:100px;width:500px;font-size:12pt;"></textarea>
+      <textarea name="answer" style="height:150px;width:500px;font-size:20pt;" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }"  placeholder="ask here!" required></textarea>
       <input type="submit">
     </form>
     <% if(locals.message){ %>

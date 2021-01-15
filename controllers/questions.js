@@ -77,6 +77,32 @@ async function deleteQuestion(req,res,next){
     res.redirect("/questions");
 }
 
+async function updateAnswer(req,res,next){
+    let question = await Question.findById(req.params.id).populate('username').populate('answers.username');
+    let answers = question.answers;
+    let answerIndex = answers.findIndex(answer => answer._id == req.params.aid);
+    let answer = answers[answerIndex];
+    res.render("editAnswer.ejs", {answer,question, user:req.user});
+    //let question = await Question.updateOne({_id : req.params.id},{req.body});
+}
+async function updateAnswerForm(req,res,next){
+    let question = await Question.findById(req.params.id).populate('username').populate('answers.username');
+    let answers = question.answers;
+    let answerIndex = answers.findIndex(answer => answer._id == req.params.aid);
+    answers[answerIndex].answer = req.body.answer;
+    await question.save();
+    res.redirect(`/questions/${req.params.id}`);
+}
+async function deleteAnswer(req,res,next){
+    let question = await Question.findById(req.params.id).populate('username').populate('answers.username');
+    let answers = question.answers;
+    let answerIndex = answers.findIndex(answer => answer._id == req.params.aid);
+    answers.splice(answerIndex,1);
+    await question.save();
+    res.redirect(`/questions/${req.params.id}`);
+}
+
+
 
 module.exports = {
     index,
@@ -87,5 +113,8 @@ module.exports = {
     addRating,
     deleteQuestion,
     updateQuestion,
-    updateQuestionForm
+    updateQuestionForm,
+    deleteAnswer,
+    updateAnswer,
+    updateAnswerForm
 };
