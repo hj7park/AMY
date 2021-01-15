@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>AMY(Ask Me Yourself)</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<%- include('partials/header') %>
     <h1>Ask Me Yourself!</h1>
-    <form action="/questions/new" method="post"><input type="text" name="question" style="height:30px;width:500px;font-size:20pt;">
+    <form action="/questions/new" method="post" class="submitForm"><textarea name="question" style="height:150px;width:500px;font-size:20pt;" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }"  placeholder="ask here!" required></textarea>
+      <button type="submit"><i class="fas fa-search"></i></button>
     </form>
      
     <h2>List of Questions</h2>
-    <ul class="qustions">  
+    <ul class="qustions">
       <% questions.forEach(function(question){ %>
         <li>
           <a href="/questions/<%= question._id %>"><%= question.question %></a>
+          views: <%= question.popularity %>
           <% if(user && user.role == "admin"){ %>
           <form action="/questions/<%= question._id %>" method="post">
-            <input type="submit" value="X">
+              <button type="submit"><i class="fas fa-trash-alt"></i></button>
           </form>
           <% } %>
         </li>
         
       <% }) %>
     </ul>
-  </body>
-</html>
+<%- include('partials/footer') %>

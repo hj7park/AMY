@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+    <h1>Welcome <%= user.name %></h1>
+    <h2>Profile</h2>     
+    <p>Email : <%= user.email %></p>
+    <p>Google ID : <%= user.googleId %></p>
+    <p>Role : <%= user.role %></p>
+    <h3>List of Questions Asked</h3>
+    <ul class="qustions">
+      <% questions.forEach(function(question){ %>
+        <li>
+          <a href="/questions/<%= question._id %>"><%= question.question %></a>
+          views: <%= question.popularity %>
+        </li>
+      <% }) %>
+    </ul>
+<%- include('partials/footer') %>

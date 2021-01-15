@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+  <h1>Edit Your Question</h1>
+  <form action="/questions/<%=question._id%>/editForm" method ="post">
+  <p>
+    <label for="question">Edit your question:</label>
+    <textarea id="question" name="question" value="<%= question.question%>"required></textarea>
+  </p>
+  <input type="submit" value="OK">
+  </form>
+<%- include('partials/footer') %>
+ 

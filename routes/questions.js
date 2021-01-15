@@ -8,10 +8,13 @@ router.get('/', questionCtrl.index);
 
 router.post('/new',isLoggedIn, questionCtrl.addQuestion);
 router.post('/:id/answers/:aid/ratings', isLoggedIn, questionCtrl.addRating)
+router.post('/:id/edit', isLoggedIn, questionCtrl.updateQuestion)
+router.post('/:id/editForm', isLoggedIn, questionCtrl.updateQuestionForm)
+router.post('/:id/delete', isLoggedIn, questionCtrl.deleteQuestion)
 
 router.get('/:id', questionCtrl.showQuestion);
 router.post('/:id/answers/new',isLoggedIn, questionCtrl.addAnswer);
-router.post('/:id', questionCtrl.deleteQuestion);
+router.post('/:id', questionCtrl.deleteAdminQuestion);
 
 
 //logged in middleware

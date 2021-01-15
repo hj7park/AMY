@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var logger = require('morgan');
 var passport = require('passport');
+var flash = require('connect-flash');
 require('./config/database');
 require('./config/passport');
 
@@ -29,6 +30,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());

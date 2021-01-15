@@ -1,6 +1,7 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: #424748;
 }
 
 a {
@@ -8,8 +9,104 @@ a {
 }
 
 
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas: 
+    "nav"
+    "main"
+}
+
+body > nav {
+  grid-area: nav;
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+}
+
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+nav > .titleName{
+  font-size:30px;
+}
+
+nav > :nth-child(1) {
+  margin-right:auto;
+}
+
+nav > a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+nav > a:hover {
+  color: blue;
+  background-color: white;
+}
+
+nav > a.active {
+  color: black;
+}
+
+main > ul{
+  width:70%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  font-size:20px;
+  font-weight: bold;
+  padding:10px 0 10px 0;
+  height:80px;
+}
+
+
+table{
+  border: 1px solid black;
+  width: 90%;
+}
+th {
+  border: 1px solid black;
+  padding: 6px;
+  height:40px;
+}
+
+th.answers {
+  width:50%;
+}
+th.ratings{
+  width:10%;
+}
+th.usernames{
+  width:10%;
+}
+th.rateStars{
+  width:14%;
+}
+th.icons{
+  width:6%;
+}
+
 .stars {
-  width: 100px;
+  width: 100%;
+  margin:auto;
 }
 
 button {
