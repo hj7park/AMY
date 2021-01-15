@@ -5,7 +5,7 @@
 ##### Right now a user can ask a question and other users(hopefully) will answer your questions on anything! <br>
 #
 ### ScreenShot
-![image info](./img/screenshot.png)
+![image info](./public/screenshot.png)
 #
 ### Technologies Used
 Javascript<br>
